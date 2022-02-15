@@ -1,0 +1,40 @@
+VAR
+	tab1,tab2: ARRAY_OF INTEGER[10];
+	i,counter : INTEGER := 0;
+	htable := HASH_TABLE<INTEGER,INTEGER>;
+	htable : ARRAY_OF INTEGER[20];
+	sum : INTEGER := 0;
+BEGIN
+	
+	tab1 := [3, 1, 7, 9];  
+	tab2 := [2, 4, 1, 9, 3];
+		
+	FOR i FROM 0 TO tab1.length-1 DO
+		IF (htable.lookup(tab1[i]) = TRUE) THEN
+			counter := htable.get(tab1[i]);
+			htable.insert(tab1[i],counter+1);
+		ELSE
+			htable.insert(tab1[i],1);
+		END_IF
+	END_FOR
+	
+	FOR i FROM 0 TO tab2.length-1 DO
+		IF (htable.lookup(tab2[i]) = TRUE) THEN
+			counter := htable.get(tab2[i]);
+			htable.insert(tab2[i],counter+1);
+		ELSE
+			htable.insert(tab2[i],1);
+		END_IF
+	END_FOR
+	
+	htable := htable.getKeys();
+	
+	FOR i FROM 0 TO htable.length-1 DO
+		IF(htable.get(htable[i] = 2)
+			sum := sum + htable[i];
+		END_IF
+	END_FOR
+	
+	WRITE(sum);
+	
+END
