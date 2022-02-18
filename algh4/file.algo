@@ -1,0 +1,20 @@
+ALGORITHM  InsertionSorting
+VAR
+    set1 : ARRAY_OF INTEGER;
+    i,j,temp: INTEGER;
+    
+BEGIN
+        FOR i FROM 0 TO array.length STEP 1  DO
+          FOR j FROM i TO 1 STEP 1  DO
+            IF (array[j-1] > array[j] ) THEN
+            temp := array[j];
+            array[j] := array[j-1];
+            array[j-1] := temp;
+            j=j-1;
+        ELSE
+            break
+            END_IF
+          END_FOR
+        END_FOR
+        Write(array)
+END
